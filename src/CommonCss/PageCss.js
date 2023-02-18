@@ -35,6 +35,16 @@ marginBottom:4,
         top:50,
         left:20,
         alignItems:"center"
-    }
+    },
+    icon1:{
+        color:'white',
+        fontSize:30,
+    },
+    logo2:{
+        height:40,
+        resizeMode:"contain",
+        width:100,
+
+    },
 
 }
