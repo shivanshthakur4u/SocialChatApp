@@ -13,6 +13,7 @@ import FogotPassword_ChoosePassword from './src/Screens/LoginSignUp/ForgotPasswo
 import FogotPassword_EnterVerificationCode from './src/Screens/LoginSignUp/ForgotPassword/FogotPassword_EnterVerificationCode';
 import FogotPassword_AccountRecovered from './src/Screens/LoginSignUp/ForgotPassword/FogotPassword_AccountRecovered';
 import  MainPage from './src/Screens/Mainscreen/MainPage';
+import All_Chats from './src/Screens/ChatSection/All_Chats';
 
 
 const Stack = createNativeStackNavigator();
@@ -36,6 +37,11 @@ export default function App() {
         <Stack.Screen name='FogotPassword_ChoosePassword' component={FogotPassword_ChoosePassword}/>
         <Stack.Screen name='FogotPassword_AccountRecovered' component={FogotPassword_AccountRecovered }/>
         <Stack.Screen name='MainPage' component={MainPage}/>
+        <Stack.Screen name='All_Chats' component={All_Chats}
+          options={{
+            animation:"slide_from_bottom"
+          }}
+        />
 
       </Stack.Navigator>
     </NavigationContainer>
