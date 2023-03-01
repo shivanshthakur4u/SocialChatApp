@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { FontAwesome } from '@expo/vector-icons';
 import { icon1 } from '../CommonCss/PageCss';
 
-const Post_Big_Card = ({likes,comments, post_pic,profilepic,username}) => {
+const Post_Big_Card = ({likes,comments, posts,profilepic,username}) => {
     const [isliked, setisliked]=useState(false);
     const [iscommentPressed, setcommentPressed]=useState(false);
   return (
@@ -12,20 +12,20 @@ const Post_Big_Card = ({likes,comments, post_pic,profilepic,username}) => {
       <Image source={{uri:profilepic}} style={styles.profilepic}/>
       <Text style={styles.username}>{username}</Text>
       </View>
-      <Image source={{uri:post_pic}} style={styles.postimage} />
+      <Image source={{uri:posts}} style={styles.postimage} />
 
       <View style={styles.s2}>
         {
             isliked ?  <View style={styles.s21}> 
             <FontAwesome style={styles.iconliked} name="heart" size={24} 
             color="black"  onPress={()=>{setisliked(false)}} />
-            <Text style={styles.liked}>{likes.length+1}</Text>
+            <Text style={styles.liked}>{likes}</Text>
             </View> :
             <View style={styles.s21}> 
             <FontAwesome style={icon1} name="heart-o" size={24} color="black" 
                 onPress={()=>{setisliked(true)}}
             />
-            <Text style={styles.notliked}>{likes.length}</Text>
+            <Text style={styles.notliked}>{likes}</Text>
             </View>
         }
         <View style={styles.s22}>

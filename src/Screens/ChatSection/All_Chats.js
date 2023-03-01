@@ -1,9 +1,10 @@
 import { ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { containerFull } from '../../CommonCss/PageCss'
 import { Ionicons } from '@expo/vector-icons';
 import { formHead } from '../../CommonCss/FormCss';
 import ChatCard from '../../cards/ChatCard';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const All_Chats = ({navigation}) => {
     let chat =[{
         username:'user1',
@@ -62,6 +63,28 @@ const All_Chats = ({navigation}) => {
     }
 ]
  const [keyword, setkeyword]=useState('')
+ const [Chat, setChat] = useState([])
+const [isLoading ,setisLoading]=useState(false)
+
+
+useEffect(()=>{
+    loaddata();
+ 
+},[])
+const loaddata =()=>{
+    AsyncStorage.getItem('user').then(async value=>{
+        setisLoading(true)
+        fetch('http://10.0.2.2:3000/getmessages',{
+            method:"POST",
+            headers:{'Content-Type':'application/json'},
+            body:JSON.parse(value).user._id
+        })
+        .then(res=>res.json()
+        .then(data=>{
+           setChat(data)
+        }))
+    })
+}
   return (
     <ScrollView style={styles.container} >
       <Ionicons name="chevron-back-circle" size={24} color="white" style={styles.gohomeicon} onPress={()=>{
@@ -75,14 +98,7 @@ const All_Chats = ({navigation}) => {
       </View>
       <View style={styles.c2}>
             {
-                chat.filter((chat)=>{
-                      if (keyword == ''){
-                        return chat
-                      }
-                      else if (chat.username.toLowerCase().includes(keyword.toLowerCase())  || chat.lastMessage.toLowerCase().includes(keyword.toLowerCase())) {
-                        return chat
-                      }
-                }).map((item)=>{
+                Chat.map((item)=>{
                     return(<ChatCard key={item.username} chat={item}/>)
                 })
             }

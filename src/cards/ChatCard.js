@@ -1,15 +1,17 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const ChatCard = ({chat}) => {
+const ChatCard = ({chat,navigation}) => {
   return (
-    <View style={styles.chatCard}>
-      <Image style={styles.image}source={{uri:chat.profile_image}}/>
-      <View style={styles.c1}>
-  <Text style={styles.username}>{chat.username}</Text>
-  <Text style={styles.lastMessage}>{chat.lastMessage}</Text>
-      </View>
-    </View>
+//     <View style={styles.chatCard}>
+//       <Image style={styles.image}source={{uri:chat.profile_image}}/>
+//       <View style={styles.c1}>
+//   <Text style={styles.username}>{chat.username}</Text>
+//   <Text style={styles.lastMessage}>{chat.lastMessage}</Text>
+//       </View>
+//     </View>
+
+<View></View>
   )
 }
 

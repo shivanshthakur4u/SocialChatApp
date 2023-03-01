@@ -46,5 +46,15 @@ marginBottom:4,
         width:100,
 
     },
+    searchbar:{
+        width:'95%',
+        backgroundColor:'white',
+        borderRadius:30,
+        paddingHorizontal:20,
+        paddingVertical:10,
+        marginTop:10,
+        fontSize:18,
+        alignSelf:'center',
+    },
 
 }
